@@ -6,13 +6,13 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:49:21 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/26 10:36:00 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/08/26 10:45:09 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_memset(void *str, int x, size_t length)
 {
-	unsigned char	b;
+	unsigned char	*b;
 	int				i;
 
 	i = 0;
