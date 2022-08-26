@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   test_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 14:29:12 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/26 15:28:44 by jchapman         ###   ########.fr       */
+/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdio.h>
+#include "ft_substr.c"
 
-void	ft_bzero(void *s, size_t a)
+int	main()
 {
-	unsigned char	*ch;
+	char			input[] = "this is a test for my substr"; //28 char long (a-1)
+	char			*output;
+	unsigned int	a;
+	size_t			b;
 
-	ch = (unsigned char *) s;
-	while (a > 0)
-	{
-		ch[a-1] = 0;
-		a--;
-	}
-	s = ch;
+	a = 4;
+	b = 8;
+
+	output = ft_substr(input, a, b);
+	printf("%s\n", output);
+	return (0);
 }
+

@@ -6,7 +6,7 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 11:49:21 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/26 10:45:09 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/08/26 11:57:23 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	*ft_memset(void *str, int x, size_t length)
 	int				i;
 
 	i = 0;
-	b = (unsigned char) str;
-
+	b = (unsigned char *) str;
 	while (i < length)
 	{
 		b[i] = x;
@@ -25,4 +24,3 @@ void	*ft_memset(void *str, int x, size_t length)
 	}
 	return (str = b);
 }
-
