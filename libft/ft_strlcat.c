@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   strlcat.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/29 13:28:48 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/29 15:22:06 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+size_t	ft_strlcat(char *restrict dest,
+const char *restrict source, size_t sizedest)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	char	*sourcestr;
+	int		destlen;
+	int		i;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	destlen = ft_strlen(dest);
+	sourcestr = (char *)source;
+	i = 0;
+	while (sourcestr[i] && (i + destlen < sizedest))
+	{
+		dest[i + destlen] = sourcestr[i];
+		i++;
+	}
+	dest[i + destlen] = '\0';
+	return (i + destlen);
 }
-

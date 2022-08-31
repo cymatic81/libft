@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/29 10:16:42 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+void	*ft_memcpy(void *dest, const void *source, size_t len)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	char	*sourcestr;
+	char	*destinstr;
+	char	*returnstr;
+	int		i;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	sourcestr = (char *) source;
+	returnstr = (char *) dest;
+	destinstr = (char *) dest;
+	i = 0;
+	while (sourcestr[i] && i < len)
+	{	
+		destinstr[i] = sourcestr[i];
+		i++;
+	}
+	dest = sourcestr;
+	return (returnstr);
 }
-

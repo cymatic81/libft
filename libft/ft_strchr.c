@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/24 16:08:16 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/30 10:47:17 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+char	*ft_strchr(const char *str, int x)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	char	*strcpy;
+	char	xc;
+	int		i;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	strcpy = (char *)str;
+	xc = (char) x;
+	i = 0;
+	if (x == '\n')
+		return (NULL);
+	while (strcpy[i] != xc && strcpy[i] != '\n')
+		i++;
+	if (strcpy[i] == '\n')
+		return (NULL);
+	else
+		return ((char *)str + i);
 }
-

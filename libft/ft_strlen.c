@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2021/12/05 15:55:25 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/30 11:14:58 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+size_t	ft_strlen(const char *str)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	int	count;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	count = 0;
+	while (str[count] != '\0')
+	{
+	count++;
+	}
+	return (count);
 }
-

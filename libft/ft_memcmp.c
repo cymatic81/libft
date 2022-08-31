@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/30 13:51:10 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/30 14:02:42 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+
+int	ft_memcmp(const void *string1, const void *string2, size_t n)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	char	*strcopy1;
+	char	*strcopy2;
+	int		i;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	strcopy1 = (char *)string1;
+	strcopy2 = (char *)string2;
+	i = 0;
+	while (i < (n-1) && strcopy1[i] == strcopy2[i])
+	i++;
+	return (strcopy1[i] - strcopy2[i]);
 }
-

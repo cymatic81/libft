@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/31 13:00:54 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/31 14:18:07 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+char *ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
-
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	int		strmatch;
+	int		i;
+	char	*hayscopy;
+	
+	if (needle[0] == '\n')
+		return((char *)haystack);
+	i = 0;
+	ft_strlcpy (hayscopy, haystack, n);
+	while (strmatch != 0 && i < n)
+	{
+		strmatch = ft_strncmp (&hayscopy[i], needle, n);
+		i++;
+	}
+	if (strmatch == 0)
+		return((char *)haystack + i - 1);
+	else
+		return(NULL);
 }
-

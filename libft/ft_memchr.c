@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_substr.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/21 09:03:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/22 15:27:38 by jchapman         ###   ########.fr       */
+/*   Created: 2022/08/30 13:06:19 by jchapman          #+#    #+#             */
+/*   Updated: 2022/08/30 13:28:24 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include "ft_substr.c"
 
-int	main()
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	char			input[] = "this is a test for my substr"; //28 char long (a-1)
-	char			*output;
-	unsigned int	a;
-	size_t			b;
+	char	*strcopy;
+	int		i;
 
-	a = 4;
-	b = 8;
-
-	output = ft_substr(input, a, b);
-	printf("%s\n", output);
-	return (0);
+	strcopy = (char *)str;
+	i = 0;
+	if (c == '\n')
+		return (NULL);
+	while (strcopy[i] != c && strcopy[i] != '\n' && i < n)
+		i++;
+	if (strcopy[i] == '\n' || i == n)
+		return (NULL);
+	else
+		return ((char *)str + i);
 }
-
