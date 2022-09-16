@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 15:11:01 by jchapman         ###   ########.fr       */
+/*   Created: 2022/09/02 12:09:02 by jchapman          #+#    #+#             */
+/*   Updated: 2022/09/02 12:37:29 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *source, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*sourcestr;
-	char	*destinstr;
-	char	*returnstr;
 	int		i;
+	int		j;
+	char	*returns;
 
-	sourcestr = (char *) source;
-	returnstr = (char *) dest;
-	destinstr = (char *) dest;
+	returns = malloc(sizeof (char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (returns == NULL)
+		return (NULL);
 	i = 0;
-	while (sourcestr[i] && i < len)
-	{	
-		destinstr[i] = sourcestr[i];
+	while (s1[i])
+	{
+		returns[i] = s1[i];
 		i++;
 	}
-	dest = sourcestr;
-	return (returnstr);
+		j = 0;
+	while (s2[j])
+	{
+		returns[i + j] = s2[j];
+		j++;
+	}
+	returns[i + j] = '\0';
+	return (returns);
 }

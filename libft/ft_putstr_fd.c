@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 15:11:01 by jchapman         ###   ########.fr       */
+/*   Created: 2022/09/13 15:51:36 by jchapman          #+#    #+#             */
+/*   Updated: 2022/09/13 15:54:31 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *source, size_t len)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*sourcestr;
-	char	*destinstr;
-	char	*returnstr;
-	int		i;
-
-	sourcestr = (char *) source;
-	returnstr = (char *) dest;
-	destinstr = (char *) dest;
-	i = 0;
-	while (sourcestr[i] && i < len)
-	{	
-		destinstr[i] = sourcestr[i];
-		i++;
-	}
-	dest = sourcestr;
-	return (returnstr);
+	write(fd, &s, ft_strlen(s));
 }

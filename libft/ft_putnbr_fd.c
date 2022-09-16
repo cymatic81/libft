@@ -1,31 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 15:11:01 by jchapman         ###   ########.fr       */
+/*   Created: 2022/09/13 16:00:24 by jchapman          #+#    #+#             */
+/*   Updated: 2022/09/13 17:21:01 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *source, size_t len)
+static void	itoa(n, fd)
 {
-	char	*sourcestr;
-	char	*destinstr;
-	char	*returnstr;
-	int		i;
+	char	x;
 
-	sourcestr = (char *) source;
-	returnstr = (char *) dest;
-	destinstr = (char *) dest;
-	i = 0;
-	while (sourcestr[i] && i < len)
-	{	
-		destinstr[i] = sourcestr[i];
-		i++;
+	if (n > 9)
+	{
+		itoa(n/10, fd);
+		x = (n % 10) + '0';
+		write(fd, &x, 1);
 	}
-	dest = sourcestr;
-	return (returnstr);
+	else
+	{	
+		x = n + '0';
+		write(fd, &x, 1); 
+	}
+}	
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else 
+	{	
+		if (n < 0)
+		{
+			write(fd, "-", 1);
+			n = n * -1;
+		}
+	itoa(n, fd);	
+	}
 }

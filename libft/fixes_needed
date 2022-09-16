@@ -1,0 +1,3 @@
+1. calloc tester not working, also do i free *tempptr or *test (same for next function).
+2. static helper functions!
+3. "&" when calling ft_lstadd_front???? why???

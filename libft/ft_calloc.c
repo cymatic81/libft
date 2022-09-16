@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 15:11:01 by jchapman         ###   ########.fr       */
+/*   Created: 2022/09/01 12:13:25 by jchapman          #+#    #+#             */
+/*   Updated: 2022/09/01 12:29:40 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *source, size_t len)
+void	*ft_calloc (size_t count, size_t size)
 {
-	char	*sourcestr;
-	char	*destinstr;
-	char	*returnstr;
-	int		i;
-
-	sourcestr = (char *) source;
-	returnstr = (char *) dest;
-	destinstr = (char *) dest;
-	i = 0;
-	while (sourcestr[i] && i < len)
-	{	
-		destinstr[i] = sourcestr[i];
-		i++;
-	}
-	dest = sourcestr;
-	return (returnstr);
+	void	*tempptr;
+	
+	tempptr = malloc (count * size);
+	if (tempptr == NULL)
+		return (NULL);
+	ft_bzero(tempptr, count * size);
+	return (tempptr);
 }

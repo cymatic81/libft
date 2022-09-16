@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 15:44:27 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 15:11:01 by jchapman         ###   ########.fr       */
+/*   Created: 2022/09/15 11:11:44 by jchapman          #+#    #+#             */
+/*   Updated: 2022/09/15 11:36:41 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dest, const void *source, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*sourcestr;
-	char	*destinstr;
-	char	*returnstr;
-	int		i;
+	t_list	*tmp;
+	t_list	*next;
 
-	sourcestr = (char *) source;
-	returnstr = (char *) dest;
-	destinstr = (char *) dest;
-	i = 0;
-	while (sourcestr[i] && i < len)
-	{	
-		destinstr[i] = sourcestr[i];
-		i++;
+	tmp = *lst;
+	while (tmp)
+	{
+		next = tmp->next;
+		del(tmp->content);
+		free(tmp);
+		tmp = next;
 	}
-	dest = sourcestr;
-	return (returnstr);
+	*lst = NULL;
 }
