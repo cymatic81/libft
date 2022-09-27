@@ -6,9 +6,11 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:11:44 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/15 11:36:41 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:57:46 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {

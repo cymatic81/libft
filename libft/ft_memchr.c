@@ -6,23 +6,26 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 13:06:19 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/30 13:28:24 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/21 13:05:38 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
 	char	*strcopy;
-	int		i;
+	char	ch;
+	size_t	i;
 
 	strcopy = (char *)str;
+	ch = (char)c;
 	i = 0;
-	if (c == '\n')
-		return (NULL);
-	while (strcopy[i] != c && strcopy[i] != '\n' && i < n)
+	while (i < n)
+	{
+		if (strcopy[i] == ch)
+			return (&strcopy[i]);
 		i++;
-	if (strcopy[i] == '\n' || i == n)
-		return (NULL);
-	else
-		return ((char *)str + i);
+	}
+	return (NULL);
 }

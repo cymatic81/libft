@@ -6,9 +6,11 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 11:01:56 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/15 11:08:41 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:58:13 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {

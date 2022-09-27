@@ -6,7 +6,7 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 08:55:42 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/02 12:08:37 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/26 12:08:09 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,18 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 	unsigned int	maxlength;
 
-	if (s == NULL)
-		return (NULL);
-/* is this check needed? */
 	maxlength = 0;
-	while (s[maxlength])
-		maxlength++;
-	if (start >= maxlength || len == 0)
-		return (0);
-/* is this check needed? */
+	if (start >= ft_strlen(s))
+		len = 0;
+	else
+		maxlength = ft_strlen(&s[start]);
+	if (len > maxlength)
+		len = maxlength;
 	out = malloc((len + 1) * sizeof(char));
 	if (out == NULL)
 		return (NULL);
 	i = 0;
-	while ((s[start + i]) != '\0' && i < len)
+	while (i < len)
 	{
 		out[i] = s[start + i];
 		i++;

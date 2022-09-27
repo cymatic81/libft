@@ -6,14 +6,16 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 12:13:25 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/01 12:29:40 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/19 10:48:35 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_calloc (size_t count, size_t size)
+#include "libft.h"
+
+void	*ft_calloc(size_t count, size_t size)
 {
 	void	*tempptr;
-	
+
 	tempptr = malloc (count * size);
 	if (tempptr == NULL)
 		return (NULL);

@@ -6,41 +6,24 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 13:21:14 by jchapman          #+#    #+#             */
-/*   Updated: 2022/09/15 14:56:04 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/27 12:47:28 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	clearlist(t_list *new, void (*del)(void *))
-{
-	t_list	*next;
-	
-	while (new)
-	{
-		next = new->next;
-		del(new);
-		free(new);
-		new = next;
-	}
-}
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;
-	t_list	*node;
 
+	if (lst == NULL || f == NULL)
+		return (NULL);
 	new = ft_lstnew(f(lst->content));
 	if (new == NULL)
-		return(NULL);
-	while (lst->next)
 	{
-		node = ft_lstnew(f(lst->next)->content);
-		if (node == NULL)
-		{
-			clearlist(new, del);
-			return(NULL);
-		}
-		lst = lst->next;
-		node = node->next;
+		ft_lstclear(&new, del);
+		return (NULL);
 	}
+	new->next = ft_lstmap(lst->next, f, del);
 	return (new);
 }

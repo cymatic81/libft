@@ -6,9 +6,11 @@
 /*   By: jchapman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 14:29:12 by jchapman          #+#    #+#             */
-/*   Updated: 2022/08/26 15:28:44 by jchapman         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:39:04 by jchapman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_bzero(void *s, size_t a)
 {
@@ -17,7 +19,7 @@ void	ft_bzero(void *s, size_t a)
 	ch = (unsigned char *) s;
 	while (a > 0)
 	{
-		ch[a-1] = 0;
+		ch[a - 1] = 0;
 		a--;
 	}
 	s = ch;
